@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 const Navbar = ({ title, icon }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="!#">
+      <Link className="navbar-brand" to="/">
         <i className={icon}></i> {title}
-      </a>
+      </Link>
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/" className="nav-link">

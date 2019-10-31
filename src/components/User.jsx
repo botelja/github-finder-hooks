@@ -52,11 +52,26 @@ const User = ({ match }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
+          <div className="my-2">
+            <span className="badge badge-pill badge-primary">
+              Followers: {followers}
+            </span>
+            <span className="badge badge-pill badge-success ml-1">
+              Following: {following}
+            </span>
+            <span className="badge badge-pill badge-warning ml-1">
+              Public Repos: {public_repos}
+            </span>
+            <span className="badge badge-pill badge-secondary ml-1">
+              Public Gists: {public_gists}
+            </span>
+          </div>
           <p className="card-text">Location: {location}</p>
           <a href={html_url} className="btn btn-primary">
             Visit Github Profile
           </a>
         </div>
+
         <ul className="list-group">
           <li className="list-group-item">
             {login && (
@@ -81,18 +96,6 @@ const User = ({ match }) => {
           </li>
         </ul>
       </div>
-      <span className="badge badge-pill badge-primary">
-        Followers: {followers}
-      </span>
-      <span className="badge badge-pill badge-success ml-1">
-        Following: {following}
-      </span>
-      <span className="badge badge-pill badge-warning ml-1">
-        Public Repos: {public_repos}
-      </span>
-      <span className="badge badge-pill badge-secondary ml-1">
-        Public Gists: {public_gists}
-      </span>
       <Repos repos={repos} />
     </Fragment>
   );

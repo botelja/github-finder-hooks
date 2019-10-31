@@ -1,17 +1,20 @@
 import React, { Fragment, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
 import GithubContext from '../context/github/githubContext';
+import AlertContext from '../context/alert/alertContext';
 
-const Search = ({ showAlert }) => {
+const Search = () => {
   const githubContext = useContext(GithubContext);
+  const alertContext = useContext(AlertContext);
+
   const [name, setName] = useState('');
 
   const { searchUsers, clearUsers, users } = githubContext;
+  const { setAlert } = alertContext;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === '') {
-      showAlert('Please enter some name', 'danger');
+      setAlert('Please enter some name', 'danger');
     } else {
       searchUsers(name);
       setName('');
@@ -48,10 +51,6 @@ const Search = ({ showAlert }) => {
       )}
     </Fragment>
   );
-};
-
-Search.propTypes = {
-  showAlert: PropTypes.func.isRequired
 };
 
 export default Search;
